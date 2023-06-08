@@ -1,6 +1,6 @@
 const menuLink = document.querySelectorAll('.menu__link')
 
-for (link of menuLink) {
+for (let link of menuLink) {
     link.addEventListener('click', showSub)
 }
 
