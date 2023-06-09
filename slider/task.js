@@ -4,7 +4,7 @@ const sliderDot = Array.from(document.querySelectorAll('.slider__dot'))
 document.querySelector('.slider__arrow_prev').addEventListener('click', prevSlide)
 document.querySelector('.slider__arrow_next').addEventListener('click', nextSlide)
 sliderDot.forEach(x => x.addEventListener('click', pickSlide))
-let ind = 0
+// let ind = 0
 
 function slideOn (ind) {
     sliderItem[ind].classList.toggle('slider__item_active')
@@ -12,12 +12,13 @@ function slideOn (ind) {
 }
 
 function checkSlide () {
-    ind = sliderItem.findIndex(x => x.matches('.slider__item_active'))
-    slideOn(ind)
+    let ind = sliderItem.findIndex(x => x.matches('.slider__item_active'))
+    slideOn(sliderItem.findIndex(x => x.matches('.slider__item_active')))
+    return ind
 }
 
 function nextSlide (){
-    checkSlide()
+    let ind = checkSlide()
     if ( ind + 1 == sliderItem.length ) {
         ind = -1
     }
@@ -25,7 +26,7 @@ function nextSlide (){
 }
 
 function prevSlide (){
-    checkSlide()
+    let ind = checkSlide()
     if ( ind - 1 <  0  ) {
         ind = sliderItem.length 
     }
